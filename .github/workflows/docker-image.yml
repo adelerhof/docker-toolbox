@@ -16,5 +16,9 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the Docker image date
       run: docker build . --file Dockerfile --tag ghcr.io/adelerhof/docker-toolbox:$(date +%d%m%Y)
+    - name: Build the Docker image date
+      run: docker push ghcr.io/adelerhof/docker-toolbox:$(date +%d%m%Y)
     - name: Build the Docker image latest
       run: docker build . --file Dockerfile --tag ghcr.io/adelerhof/docker-toolbox:latest
+    - name: Push the Docker image latest
+      run: docker push ghcr.io/adelerhof/docker-toolbox:latest
