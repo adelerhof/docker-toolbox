@@ -17,6 +17,7 @@ RUN apk add --no-cache \
     mtr \
     net-tools \
     netcat-openbsd \
+    nfs-utils \
     ngrep \
     nmap \
     openssl \
