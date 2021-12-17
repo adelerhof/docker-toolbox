@@ -18,8 +18,8 @@ jobs:
     steps:
     - name: Set releaase
       run: |
-        echo "GITHUB_ORG="$(echo ${GITHUB_REPOSITORY} >> $GITHUB_ENV
-        echo "GITHUB_REPO="$(echo ${GITHUB_REPOSITORY} >> $GITHUB_ENV
+        echo "GITHUB_ORG="$(echo ${GITHUB_REPOSITORY} ) >> $GITHUB_ENV
+        echo "GITHUB_REPO="$(echo ${GITHUB_REPOSITORY} ) >> $GITHUB_ENV
         echo "GITHUB_SHA=${GITHUB_SHA}" >> $GITHUB_ENV
         cat $GITHUB_ENV
 
