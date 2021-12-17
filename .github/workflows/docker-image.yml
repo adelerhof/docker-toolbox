@@ -13,6 +13,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: '0'
 
     - name: Bump version and push tag
       # https://github.com/anothrNick/github-tag-action
@@ -61,6 +64,11 @@ jobs:
           ghcr.io/${{env.GITHUB_ORG}}/${{env.GITHUB_REPO}}:scan
           ghcr.io/${{env.GITHUB_ORG}}/${{env.GITHUB_REPO}}:${{ steps.bump_version.outputs.new_tag }}
           ghcr.io/${{env.GITHUB_ORG}}/${{env.GITHUB_REPO}}:latest
+
+   
+/usr/bin/docker buildx build --tag ghcr.io/adelerhof/toolbox:46da577dfb6462d6b069ec867329a96881155816 --tag ghcr.io/adelerhof/toolbox:scan --tag ghcr.io/adelerhof/toolbox: --tag ghcr.io/adelerhof/toolbox:latest --iidfile /tmp/docker-build-push-VwwQVi/iidfile --metadata-file /tmp/docker-build-push-VwwQVi/metadata-file --file ./Dockerfile --push .
+error: invalid tag "ghcr.io/adelerhof/toolbox:": invalid reference format
+Error: buildx failed with: error: invalid tag "ghcr.io/adelerhof/toolbox:": invalid reference format
 
     - name: Run Trivy vulnerability scanner
       uses: aquasecurity/trivy-action@master
