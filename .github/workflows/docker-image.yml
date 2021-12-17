@@ -73,6 +73,10 @@ jobs:
         template: '@/contrib/sarif.tpl'
         output: 'trivy-results.sarif'
 
+    - name: Upload Trivy scan results to GitHub Security tab
+      uses: github/codeql-action/upload-sarif@v1
+      with:
+        sarif_file: 'trivy-results.sarif'
 
     # - name: Build the Docker image date
     #   run: docker build . --file Dockerfile --tag ghcr.io/adelerhof/docker-toolbox:$(date +%d%m%Y)
