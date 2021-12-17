@@ -10,21 +10,26 @@ env:
   REGISTRY: ghcr.io
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
-
     steps:
+
+    - name: Bump version and push tag
+      # https://github.com/anothrNick/github-tag-action
+      id: bump_version
+      uses: anothrNick/github-tag-action@1.36.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        WITH_V: false
+        DEFAULT_BUMP: patch
+
+
     - name: Set releaase
       run: |
-        echo "GITHUB_ORG="$(echo ${GITHUB_REPOSITORY} ) >> $GITHUB_ENV
-        echo "GITHUB_REPO="$(echo ${GITHUB_REPOSITORY} ) >> $GITHUB_ENV
+        echo "GITHUB_ORG="$(echo ${GITHUB_REPOSITORY} | sed 's/\/docker-.*//' ) >> $GITHUB_ENV
+        echo "GITHUB_REPO="$(echo ${GITHUB_REPOSITORY} | sed 's/.*\/docker-//' ) >> $GITHUB_ENV
         echo "GITHUB_SHA=${GITHUB_SHA}" >> $GITHUB_ENV
         cat $GITHUB_ENV
-
-# echo "GITHUB_ORG="$(echo ${GITHUB_REPOSITORY} | sed 's/\/docker-.*//' ) >> $GITHUB_ENV
-# echo "GITHUB_REPO="$(echo ${GITHUB_REPOSITORY} | sed 's/.*\/docker-//' ) >> $GITHUB_ENV
 
     - name: Checkout repository
       # https://github.com/actions/checkout
