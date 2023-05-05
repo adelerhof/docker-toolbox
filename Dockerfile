@@ -32,6 +32,5 @@ RUN apk add --no-cache \
     tcpdump \
     tcpflow \
     tree \
-    telnet \
     vim
 ENTRYPOINT bash
