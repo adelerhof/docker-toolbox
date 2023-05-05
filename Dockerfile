@@ -3,6 +3,7 @@ FROM python:3.9-alpine3.14
 COPY mailrelaytest.sh /mailrelaytest.sh
 RUN chmod 0700 /mailrelaytest.sh
 RUN apk update && apk upgrade --available && sync
+RUN apk add busybox-extras
 RUN apk add --no-cache \
     atop \
     bash \
