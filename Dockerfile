@@ -25,10 +25,12 @@ RUN apk add --no-cache \
     ngrep \
     nmap \
     openssl \
+    postgresql-client \
     pv \
     sysstat \
     tcpdump \
     tcpflow \
     tree \
+    telnet \
     vim
 ENTRYPOINT bash
