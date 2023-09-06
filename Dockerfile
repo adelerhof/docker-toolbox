@@ -1,4 +1,4 @@
-FROM python:3.9.16-alpine3.17
+FROM python:3.11.5-alpine3.18
 
 COPY mailrelaytest.sh /mailrelaytest.sh
 RUN chmod 0700 /mailrelaytest.sh
