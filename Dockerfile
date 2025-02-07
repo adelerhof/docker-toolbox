@@ -1,7 +1,8 @@
-FROM python:3.12.7-alpine3.20
+FROM python:3.13-alpine3.21
 
 COPY mailrelaytest.sh /mailrelaytest.sh
-RUN chmod 0700 /mailrelaytest.sh
+COPY mailrelaytest-tls.sh /mailrelaytest-tls.sh
+RUN chmod 0700 /mailrelaytest.sh && chmod 0700 /mailrelaytest-tls.sh
 RUN apk update && apk upgrade --available && sync
 RUN apk add busybox-extras
 RUN apk add --no-cache \
@@ -33,4 +34,4 @@ RUN apk add --no-cache \
     tcpflow \
     tree \
     vim
-ENTRYPOINT bash
+CMD ["bash"]
