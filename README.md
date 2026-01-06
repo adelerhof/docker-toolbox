@@ -40,7 +40,8 @@ Connected to 10.0.0.1
 ```
 
 This script requires four arguments:
- 1. recepient mail server
- 2. port (typically 25 or 465)
- 3. mail from (e.g. from@example.com)
- 4. mail to (e.g. to@example.com)
+
+1.  recepient mail server
+2.  port (typically 25 or 465)
+3.  mail from (e.g. from@example.com)
+4.  mail to (e.g. to@example.com)
