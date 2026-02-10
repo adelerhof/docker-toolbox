@@ -30,6 +30,7 @@ RUN apk add --no-cache \
     postgresql-client \
     pv \
     sysstat \
+    sslscan \
     tcpdump \
     tcpflow \
     tree \
