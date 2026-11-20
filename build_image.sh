@@ -54,8 +54,6 @@ _image_tags() {
 		"ghcr.io/adelerhof/toolbox:latest"
 		"harbor.adelerhof.eu/toolbox/toolbox:${TAG}"
 		"harbor.adelerhof.eu/toolbox/toolbox:latest"
-		"erikadelerhof922/docker-toolbox:${TAG}"
-		"erikadelerhof922/docker-toolbox:latest"
 	)
 }
 
